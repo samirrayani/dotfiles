@@ -19,9 +19,8 @@ function check_git_changes {
   [ `parse_git_status` -ne 1 ] && tput setaf 1 || tput setaf 2
 }
 
-# display machine, site, git status
-SITE=`cat /etc/sitename`
-export PS1="$YELLOW\h.$SITE$ \w\[\$(check_git_changes)\]\$(parse_git_branch)$LIGHT_GRAY $ "
+# display git status
+export PS1="$YELLOW\h$ \w\[\$(check_git_changes)\]\$(parse_git_branch)$LIGHT_GRAY $ "
 
 # case in-sensitive tab autocomplete
 bind "set completion-ignore-case on"
